@@ -32,6 +32,7 @@ Login|Signup Screen/
 
 > Please refer to project's style and contribution guidelines before submitting patches and additions.
 
+0. ⭐ Star this repo ;) 
 1. 🔍 Find or Create an issue that you are interested in addressing or a feature that you would like to add.
 2. 🍴 Fork the repository associated with the issue to your local GitHub organization. This means that you will have a copy of the repository under ```your-GitHub-username/repository-name```.
 3. 🖱️Clone the repository to your local machine using ```git clone https://github.com/github-username/repository-name.git```.
