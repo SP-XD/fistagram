@@ -1,3 +1,5 @@
+## *🔴 This Repo has been transfered to [dscnsec/fistagram](https://github.com/dscnsec/Fistagram)*
+
 # Fistagram  | Open For HacktoberFest [Contributions](#✨-how-to-contribute)
 
 An Instagram clone Re-Imagined with a new UI design
