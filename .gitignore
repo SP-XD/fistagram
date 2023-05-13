@@ -48,3 +48,5 @@ app.*.map.json
 /android/app/google-services.json
 
 lib/notes.txt
+
+.fvm/flutter_sdk
