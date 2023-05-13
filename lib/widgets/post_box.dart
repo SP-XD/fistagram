@@ -1,15 +1,19 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:fistagram/custom_icons_icons.dart';
 import 'package:fistagram/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class PostBox extends StatefulWidget {
   final String userId;
   final likes, numberOfComments;
   final String imagePath;
+  final String profileImage;
   const PostBox({
     Key? key,
     required this.userId,
+    required this.profileImage,
     required this.likes,
     required this.numberOfComments,
     required this.imagePath,
@@ -40,7 +44,7 @@ class _PostBoxState extends State<PostBox> {
               ),
               CircleAvatar(
                 radius: 13,
-                child: Image.asset("assets/img/profile_pic.png"),
+                backgroundImage: NetworkImage(widget.profileImage),
               ),
               const Padding(
                   padding: EdgeInsets.only(
@@ -75,10 +79,22 @@ class _PostBoxState extends State<PostBox> {
             cornerRadius: 12,
             cornerSmoothing: 1,
           ),
-          child: Container(
-              height: MediaQuery.of(context).size.height * 0.45,
-              width: MediaQuery.of(context).size.width * 0.9,
-              child: Image.asset(widget.imagePath, fit: BoxFit.cover)),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.45,
+            width: MediaQuery.of(context).size.width * 0.9,
+            child: CachedNetworkImage(
+              imageUrl: widget.imagePath,
+              placeholder: (context, url) {
+                return Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
+                    child: Container(
+                      color: Colors.grey[300],
+                    ));
+              },
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
         //-----------------------Footer section----------------------
         Container(
@@ -127,7 +143,7 @@ class _PostBoxState extends State<PostBox> {
                       style: const TextStyle(
                           fontSize: 16, fontWeight: FontWeight.w300))
                 ]),
-            Spacer(),
+            const Spacer(),
             SizedBox(
               width: 32,
               child: IconButton(
