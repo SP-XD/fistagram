@@ -5,6 +5,8 @@ import 'package:fistagram/resources/auth_methods.dart';
 class UserProvider with ChangeNotifier {
   User? _user;
 
+  // Modified by me
+
   final AuthMethods _authMethods = AuthMethods();
 
   User get getUser => _user!;
